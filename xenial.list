@@ -1,0 +1,2 @@
+# Tailscale packages for ubuntu xenial
+deb https://pkgs.tailscale.com/stable/ubuntu xenial main

@@ -2,11 +2,12 @@
 #
 set -e
 
-wget https://github.com/kaikikokuke/temp-configs/raw/main/focal.noarmor.gpg -O /usr/share/keyrings/tailscale-archive-keyring.gpg
-wget https://github.com/kaikikokuke/temp-configs/raw/main/focal.tailscale-keyring.list -O /etc/apt/sources.list.d/tailscale.list
+apt-get install apt-transport-https
+
+curl -fsSL https://github.com/kaikikokuke/temp-configs/raw/main/xenial.gpg | apt-key add -
+curl -fsSL https://github.com/kaikikokuke/temp-configs/raw/main/xenial.list | tee /etc/apt/sources.list.d/tailscale.list
 
 apt-get update 
+apt-get install tailscale
 
-apt-install tailscale
-
-echo "All done!"
+tailscale up
